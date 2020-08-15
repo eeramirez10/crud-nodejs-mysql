@@ -1,0 +1,40 @@
+<script>
+
+
+    document.addEventListener('click', function (e) {
+
+        let button = e.target;
+
+        if (button.classList.contains('editar')) {
+            let tabla = button.parentElement.parentElement;
+
+            separandoValores(tabla)
+        }
+
+    });
+
+
+    function separandoValores(data) {
+
+        let valuesOBJ = {};
+
+        valuesOBJ.id =data.children[0].textContent;
+        valuesOBJ.name = data.children[1].textContent;
+        valuesOBJ.address = data.children[2].textContent;
+        valuesOBJ.phone = data.children[3].textContent;
+
+        insertarForm(valuesOBJ)
+    }
+
+    function insertarForm(customer){
+        document.getElementsByName('id')[0].value = customer.id;
+        document.getElementsByName('name')[0].value = customer.name;
+        document.getElementsByName('address')[0].value = customer.address;
+        document.getElementsByName('phone')[0].value = customer.phone;
+    }
+
+
+</script>
+</body>
+
+</html>
